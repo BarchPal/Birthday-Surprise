@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="birthday-cake.png" type="image/png">
+    <title>Happy Birthday Rhiann! 🎂</title>
+    <meta name="description" content="A special birthday surprise for Rhiann Alessandra Bayo 🎉">
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    
+    
+    <button id="music-toggle" class="music-btn" aria-label="Toggle Music">
+        <span class="music-icon">🎵</span>
+        <span class="music-label">Music</span>
+    </button>
+
+    
+    <audio id="bg-music" loop preload="auto">
+        <source src="hbd.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="celebration-music" preload="auto">
+        <source src="assets/music/celebration.mp3" type="audio/mpeg">
+    </audio>
+
+    
+    
+    
+    <div id="balloons-container" aria-hidden="true"></div>
+
+    
+    
+    
+    <div id="easter-egg-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-content">
+            <div class="timer-ring">
+                <svg viewBox="0 0 100 100">
+                    <circle class="timer-bg" cx="50" cy="50" r="45"/>
+                    <circle class="timer-progress" cx="50" cy="50" r="45"/>
+                </svg>
+                <span class="timer-text">10</span>
+            </div>
+            
+            <img src="ogfg.jpg" alt="Easter egg surprise!" class="easter-egg-img">
+            <p class="easter-egg-text">One of the ancient friend group picture.</p>
+        </div>
+    </div>
+
+    
+    
+    
+    <div id="gallery-modal" class="modal-overlay" aria-hidden="true">
+        <span id="gallery-close" class="modal-close">&times;</span>
+        <div class="modal-content gallery-modal-content">
+            <img src="" alt="Gallery full size" id="gallery-modal-img" class="gallery-modal-img">
+            <p id="gallery-modal-caption" class="gallery-modal-caption"></p>
+        </div>
+    </div>
+
+    
+    
+    
+    <div id="loading-screen">
+        <div class="loading-blur-bg"></div>
+        <div class="loading-particles" aria-hidden="true"></div>
+        <div class="loading-content">
+            <div class="loading-emoji">🎉</div>
+            <p class="loading-text">
+                Preparing something special for<br>
+                <span class="loading-name">Rhiann Alessandra Bayo</span>
+            </p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    
+    <section id="welcome-page" class="section">
+        <div class="stars-canvas" aria-hidden="true"></div>
+        <div class="welcome-content">
+            <div class="welcome-badge">✨ A Special Day ✨</div>
+            <h1 class="birthday-title">
+                Happy Birthday,<br>
+                <span class="name-highlight">Rhiann!</span>
+                <span class="title-emoji">🎂</span>
+            </h1>
+            <p class="welcome-subtitle">Today is all about you.</p>
+            <button id="open-surprise" class="surprise-btn">
+                <span class="btn-text">Open My Surprise</span>
+                <span class="btn-emoji">🎁</span>
+                <span class="press-me-tag">Press me!</span>
+            </button>
+        </div>
+    </section>
+
+    
+    
+    
+    <section id="personal-message" class="section hidden-section">
+        <div class="section-inner">
+            <h2 class="section-title fade-in-element">A Little Letter For You 💌</h2>
+            <div class="message-layout">
+                <div class="letter-box fade-in-element">
+                    <div class="letter-header">
+                        <span class="letter-dear">Dear Rhiann,</span>
+                    </div>
+                    <p id="typewriter-text" class="letter-body"></p>
+                    <div class="letter-footer">
+                        <span class="letter-sign">— With love ❤️</span>
+                    </div>
+                </div>
+                <div class="photo-frame-wrapper fade-in-element">
+                    
+                    <div class="photo-frame">
+                        <img src="us.jpg" alt="A cherished memory" id="favorite-photo">
+                    </div>
+                    <p class="photo-caption">A moment I'll always cherish 💜</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+    
+    <section id="memory-gallery" class="section hidden-section">
+        <div class="section-inner">
+            <h2 class="section-title fade-in-element">Our Memories Together 📸</h2>
+            <p class="section-subtitle fade-in-element">Every picture tells our story</p>
+            <div class="gallery-grid">
+
+                
+                <div class="gallery-item fade-in-element">
+                    <div class="gallery-img-wrapper">
+                        <img src="groupmates.jpg" alt="Memory 1">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">🔍</span>
+                        </div>
+                    </div>
+                    <p class="gallery-caption">Best photo as groupmates!</p>
+                </div>
+
+                <div class="gallery-item fade-in-element">
+                    <div class="gallery-img-wrapper">
+                        <img src="bruh.jpg" alt="Memory 2">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">🔍</span>
+                        </div>
+                    </div>
+                    <p class="gallery-caption">One of your "pakealamera" sa phone photos</p>
+                </div>
+
+                <div class="gallery-item fade-in-element">
+                    <div class="gallery-img-wrapper">
+                        <img src="familypic.jpg" alt="Memory 3">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">🔍</span>
+                        </div>
+                    </div>
+                    <p class="gallery-caption">Best Birthday Photo este Family Picture 😆</p>
+                </div>
+
+                <div class="gallery-item fade-in-element">
+                    <div class="gallery-img-wrapper">
+                        <img src="famdinner.jpg" alt="Memory 4">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">🔍</span>
+                        </div>
+                    </div>
+                    <p class="gallery-caption">Pakain ni Nanay</p>
+                </div>
+
+                <div class="gallery-item fade-in-element">
+                    <div class="gallery-img-wrapper">
+                        <img src="duopic.jpg" alt="Memory 5">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">🔍</span>
+                        </div>
+                    </div>
+                    <p class="gallery-caption">Random Pic ✨</p>
+                </div>
+
+                <div class="gallery-item fade-in-element">
+                    <div class="gallery-img-wrapper">
+                        <img src="grad.jpg" alt="Memory 6">
+                        <div class="gallery-overlay">
+                            <span class="gallery-zoom">🔍</span>
+                        </div>
+                    </div>
+                    <p class="gallery-caption">Rush Graduation Picture 💜</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    
+    
+    <section id="birthday-cake" class="section hidden-section">
+        <div class="section-inner cake-section-inner">
+            <h2 class="section-title fade-in-element">Time to Make a Wish! ✨</h2>
+            <p class="blow-instruction fade-in-element">Make a wish and blow out the candles 🎤</p>
+
+            <div class="cake-scene fade-in-element">
+                
+                <div class="cake-plate"></div>
+                
+                
+                <div class="cake">
+                    
+                    <div class="candles-row">
+                        <div class="candle" data-candle="1">
+                            <div class="flame-wrapper">
+                                <div class="flame"></div>
+                                <div class="flame-glow"></div>
+                            </div>
+                            <div class="smoke"></div>
+                        </div>
+                        <div class="candle" data-candle="2">
+                            <div class="flame-wrapper">
+                                <div class="flame"></div>
+                                <div class="flame-glow"></div>
+                            </div>
+                            <div class="smoke"></div>
+                        </div>
+                        <div class="candle" data-candle="3">
+                            <div class="flame-wrapper">
+                                <div class="flame"></div>
+                                <div class="flame-glow"></div>
+                            </div>
+                            <div class="smoke"></div>
+                        </div>
+                        <div class="candle" data-candle="4">
+                            <div class="flame-wrapper">
+                                <div class="flame"></div>
+                                <div class="flame-glow"></div>
+                            </div>
+                            <div class="smoke"></div>
+                        </div>
+                        <div class="candle" data-candle="5">
+                            <div class="flame-wrapper">
+                                <div class="flame"></div>
+                                <div class="flame-glow"></div>
+                            </div>
+                            <div class="smoke"></div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="cake-top-layer">
+                        <div class="frosting-drip drip-1"></div>
+                        <div class="frosting-drip drip-2"></div>
+                        <div class="frosting-drip drip-3"></div>
+                        <div class="frosting-drip drip-4"></div>
+                        <div class="frosting-drip drip-5"></div>
+                    </div>
+                    <div class="cake-middle-layer">
+                        <div class="cake-filling"></div>
+                        <div class="frosting-drip drip-6"></div>
+                        <div class="frosting-drip drip-7"></div>
+                        <div class="frosting-drip drip-8"></div>
+                    </div>
+                    <div class="cake-bottom-layer">
+                        <div class="cake-decoration dot-1"></div>
+                        <div class="cake-decoration dot-2"></div>
+                        <div class="cake-decoration dot-3"></div>
+                        <div class="cake-decoration dot-4"></div>
+                        <div class="cake-decoration dot-5"></div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="mic-controls fade-in-element">
+                <button id="start-mic" class="mic-btn">
+                    <span class="mic-icon">🎤</span>
+                    <span class="mic-label">Start Microphone</span>
+                </button>
+                <div id="mic-status" class="mic-status"></div>
+                <div id="volume-meter" class="volume-meter" aria-hidden="true">
+                    <div class="volume-bar"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+    
+    <section id="friend-messages" class="section hidden-section">
+        <div class="section-inner">
+            <h2 class="section-title fade-in-element">Birthday Wishes From Friends 💜</h2>
+            <p class="section-subtitle fade-in-element">Words from people who care about you</p>
+
+            <div class="messages-wall">
+
+                
+                <div class="sticky-note note-purple fade-in-element" style="--rotate: -3deg;">
+                    <div class="note-photo-wrapper">
+                        <img src="lester.jpg" alt="Friend 1" class="note-photo">
+                    </div>
+                    <p class="note-message">"Happy birthday rhiann, more birthdays pa to come 🎉"</p>
+                    <span class="note-author">— Lester Nebrida</span>
+                    <div class="note-pin"></div>
+                </div>
+
+                <div class="sticky-note note-lavender fade-in-element" style="--rotate: 2deg;">
+                    <div class="note-photo-wrapper">
+                        <img src="alec.jpg" alt="Friend 2" class="note-photo">
+                    </div>
+                    <p class="note-message">"Hi Rhiann, happy happy happy birthday sayo bossing. Tignan mo na lagi kang happy para naman pag nagbabati kami happy talaga birthday mo. HAHAHAH d ko alam ilalagay ko pero congrats sa bagong taon mo! Sana magpatuloy ka sa paggawa ng bagay na tama at nakakasaya para sayo. Lagi mong alalahanin ang Panginoon kasi hindi ako laging nandiyan para sayo pero Siya andun lagi. Yun lang HAHAHAH happy happy happy birthday Rhiann! 🎉🎉"</p>
+                    <span class="note-author">— Alec Canipas</span>
+                    <div class="note-pin"></div>
+                </div>
+
+                <div class="sticky-note note-white fade-in-element" style="--rotate: -1.5deg;">
+                    <div class="note-photo-wrapper">
+                        <img src="sean.jpg" alt="Friend 3" class="note-photo">
+                    </div>
+                    <p class="note-message">"hi rhiann! Happy Birthday!! Keep staying kupal ganon tapos magpakabait ka na din HAHAHAHAH I hope u like yung gift ko din sayo kanina and syempre magpatangkad ka na 🔥🔥🔥 dapat talaga may cherifer yung gift ko 🔥🔥🔥 joke HAHAHAHA Happy Birthday ulii!"</p>
+                    <span class="note-author">— Sean Ana-ao</span>
+                    <div class="note-pin"></div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+    
+    
+    
+    <section id="final-message" class="section hidden-section">
+        <div class="section-inner">
+            <div class="final-message-card fade-in-element">
+                <div class="final-decoration top-left">✦</div>
+                <div class="final-decoration top-right">✦</div>
+                <div class="final-decoration bottom-left">✦</div>
+                <div class="final-decoration bottom-right">✦</div>
+                
+                <h2 class="final-title">One Last Thing... 💜</h2>
+
+                
+                <p class="final-text">
+                    Hi Rhiann, I just want to greet you a HAPPY HAPPY BIRTHDAY! I hope you like the surprise I made for you. 
+                    I know it's not much but I really put a lot of effort into it because you deserve it. I wish you all the best in life 
+                    and may all your dreams come true. Thank you for being such an amazing friend and for always being there for me. 
+                    I'm really grateful to have you in my life. Enjoy your special day and may this year bring you lots of joy,
+                     love, and success! 🎉💜
+                </p>
+
+                <div class="final-sign">
+                    <span>Forever grateful for you,</span>
+                    <span class="final-heart">💜</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+    
+    <section id="fireworks-ending" class="section hidden-section">
+        <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+        <div class="fireworks-overlay">
+            <div class="fireworks-text">
+                <span class="fw-emoji">🎉</span>
+                <h1 class="fw-title">HAPPY BIRTHDAY!</h1>
+                <span class="fw-emoji">🎉</span>
+            </div>
+            <p class="fw-subtitle">Rhiann Alessandra Bayo</p>
+            <button id="replay-btn" class="replay-btn">
+                <span>Replay Surprise</span>
+                <span class="replay-icon">🔄</span>
+            </button>
+        </div>
+    </section>
+
+    
+    
+    
+    <div id="scroll-indicator" class="scroll-indicator hidden" aria-hidden="true">
+        <div class="scroll-arrow">
+            <span>▼</span>
+        </div>
+    </div>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
