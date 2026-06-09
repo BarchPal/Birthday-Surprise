@@ -281,6 +281,7 @@ a {
 
 .section {
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -489,6 +490,7 @@ a {
 
 #welcome-page {
     min-height: 100vh;
+    min-height: 100dvh;
     background: linear-gradient(160deg, var(--bg-dark) 0%, var(--grad-deep) 30%, var(--secondary) 60%, var(--primary) 100%);
     position: relative;
 }
@@ -2071,5 +2073,34 @@ body.candles-out #birthday-cake::after {
 
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, var(--grad-light), var(--primary));
+}
+
+/* Large Desktop Support (Macbook, Windows monitors) */
+@media (min-width: 1440px) {
+    :root {
+        --section-padding: 80px 40px;
+    }
+
+    .section-inner {
+        max-width: 1300px;
+    }
+
+    .gallery-grid {
+        gap: 32px;
+    }
+
+    .messages-wall {
+        gap: 40px;
+    }
+
+    .cake-top-layer    { width: 200px; height: 65px; }
+    .cake-middle-layer { width: 260px; height: 80px; }
+    .cake-bottom-layer { width: 320px; height: 95px; }
+    .cake-plate        { width: 360px; height: 22px; }
+
+    .final-message-card {
+        padding: 72px 64px;
+        max-width: 800px;
+    }
 }
 
