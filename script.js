@@ -1235,6 +1235,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function initFireworksInteraction() {
+        if (!$fireworksSect) return;
+
+        function handlePop(e) {
+            if (e.target.closest('#replay-btn')) return;
+
+            let clientX, clientY;
+            if (e.type === 'touchstart') {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            } else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+
+            const x = clientX / window.innerWidth;
+            const y = clientY / window.innerHeight;
+
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 50,
+                    spread: 70,
+                    origin: { x, y },
+                    colors: CONFETTI_COLORS,
+                    startVelocity: 30,
+                    gravity: 1,
+                    scalar: 0.8,
+                    zIndex: 1000
+                });
+            }
+        }
+
+        $fireworksSect.addEventListener('click', handlePop);
+        $fireworksSect.addEventListener('touchstart', handlePop, { passive: true });
+    }
+
     
     function init() {
         console.log('🚀 Initialising birthday experience');
@@ -1248,6 +1284,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         
         initGallery();
+
+        
+        initFireworksInteraction();
 
         
         initLoadingScreen();
